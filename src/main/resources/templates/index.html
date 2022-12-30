@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+    <h1>Emails</h1>
+    <button onclick="getPeople()">Show emails</button>
+    <ul id="users">
+
+    </ul>
+
+    <script>
+        function getPeople() {
+            url = 'https://reqres.in/api/users?page=2';
+            users = document.getElementById('users');
+            fetch(url)
+                .then(response => response.json())
+                .then(people => {
+                    for (let person of people['data']) {
+                        let item = document.createElement('li');
+                        item.innerHTML = person['email'];
+                        users.appendChild(item);
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
