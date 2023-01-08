@@ -27,4 +27,9 @@ public class SubjectsController {
         return subjectsService.findById(id);
     }
 
+    @PostMapping
+    public Subject createSubject(@RequestBody Subject subject) {
+        return subjectsService.save(subject);
+    }
+
 }

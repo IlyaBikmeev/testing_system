@@ -3,6 +3,7 @@ package com.example.testing_system.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,5 +27,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question")
     @JsonIgnore
+    @ToString.Exclude
     private List<Answer> answers;
+
 }

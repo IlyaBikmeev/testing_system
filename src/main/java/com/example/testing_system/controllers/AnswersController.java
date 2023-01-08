@@ -27,4 +27,26 @@ public class AnswersController {
     public List<Answer> getByPrefix(@RequestParam String value) {
         return answersService.findByPrefix(value);
     }
+
+    @PostMapping
+    public Answer create(@RequestBody Answer answer) {
+        return answersService.save(answer);
+    }
+
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable int id) {
+        answersService.delete(id);
+    }
+
+    @PutMapping("{id}")
+    public Answer update(@PathVariable int id,
+                         @RequestBody Answer answer) {
+        return answersService.update(id, answer);
+    }
+
+    @PatchMapping("{id}")
+    public Answer partialUpdate(@PathVariable int id,
+                                @RequestBody Answer answer) {
+        return answersService.partialUpdate(id, answer);
+    }
 }

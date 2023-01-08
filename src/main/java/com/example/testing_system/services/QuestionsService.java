@@ -21,4 +21,12 @@ public class QuestionsService {
     public Question findById(int id) {
         return questionsRepository.findById(id).orElseThrow();
     }
+
+    public Question save(Question question) {
+        return questionsRepository.save(question);
+    }
+
+    public void delete(int id) {
+        questionsRepository.deleteById(id);
+    }
 }

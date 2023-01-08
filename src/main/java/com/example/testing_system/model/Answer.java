@@ -19,9 +19,10 @@ public class Answer {
     private String name;
 
     @Column(name = "is_correct")
-    private boolean correct;
+    private Boolean correct;
 
     @ManyToOne
     @JoinColumn(name = "question_id", referencedColumnName = "question_id")
+
     private Question question;
 }

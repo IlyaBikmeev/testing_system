@@ -23,4 +23,8 @@ public class SubjectsService {
     public Subject findByName(String name) {
         return subjectsRepository.findByName(name);
     }
+
+    public Subject save(Subject subject) {
+        return subjectsRepository.save(subject);
+    }
 }
