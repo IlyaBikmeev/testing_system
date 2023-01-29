@@ -1,6 +1,8 @@
 package com.example.testing_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -24,6 +26,8 @@ public class User {
     private Role role;
 
     @OneToOne(mappedBy = "user")
+    @JsonIgnore
+    @ToString.Exclude
     private Person student;
 
 

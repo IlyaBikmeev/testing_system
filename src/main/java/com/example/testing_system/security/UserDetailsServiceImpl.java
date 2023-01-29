@@ -3,6 +3,7 @@ package com.example.testing_system.security;
 import com.example.testing_system.model.User;
 import com.example.testing_system.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,5 +24,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = usersRepository.findByEmail(username).orElseThrow(() ->
                 new UsernameNotFoundException("User does not exist!"));
         return SecurityUser.fromUser(user);
+    }
+
+    public boolean hasUserId(Authentication authentication, int userId) {
+        User user = usersRepository.findByEmail(authentication.getName()).orElseThrow();
+        return user.getId() == userId;
     }
 }

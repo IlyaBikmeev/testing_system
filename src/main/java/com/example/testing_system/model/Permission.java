@@ -6,7 +6,8 @@ public enum Permission {
     ANSWERS_READ("answers:read"),
     ANSWERS_WRITE("answers:write"),
     SUBJECTS_READ("subjects:read"),
-    SUBJECTS_WRITE("subjects:write");
+    SUBJECTS_WRITE("subjects:write"),
+    ATTEMPTS_READ("attempts:read");
 
 
     private final String permission;

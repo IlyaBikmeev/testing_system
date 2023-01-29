@@ -1,8 +1,11 @@
 package com.example.testing_system.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "person")
@@ -20,4 +23,8 @@ public class Person {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "person")
+    @JsonIgnore
+    @ToString.Exclude
+    private List<Attempt> attempts;
 }
